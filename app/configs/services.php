@@ -2,19 +2,36 @@
 
 use Phalcon\DI\FactoryDefault;
 use Phalcon\Loader;
+use Phalcon\Mvc\Dispatcher;
 use Phalcon\Mvc\Url as UrlProvider;
 use Phalcon\Mvc\View;
 
 // Register an autoloader
 $loader = new Loader();
-$loader->registerDirs(array(
-    '../app/controllers/',
-    '../app/models/',
-))->register();
+// $loader->registerDirs(array(
+//     __DIR__ . '/../controllers/',
+//     __DIR__ . '/../models/',
+// ))->register();
+
+
+$loader->registerNamespaces(
+        array(
+                'SmvcApp\Controllers' => __DIR__ . '/../controllers/',
+                'SmvcApp\Controllers\Front' => __DIR__ . '/../controllers/front'
+        )
+)->register();
+
 
 // Create a DI
 $di = new FactoryDefault();
 
+
+
+// Setup the router component
+$di->set('router', function () {
+
+	return require __DIR__ . '/routers.php';
+},true);
 // Setup the view component
 $di->set('view', function () {
     $view = new View();
@@ -27,4 +44,9 @@ $di->set('url', function () {
     $url = new UrlProvider();
     $url->setBaseUri('/');
     return $url;
+});
+$di->set('dispatcher', function(){
+	$dispatcher = new Dispatcher();
+	$dispatcher->setDefaultNamespace('SmvcApp\Controllers');
+	return $dispatcher;
 });
