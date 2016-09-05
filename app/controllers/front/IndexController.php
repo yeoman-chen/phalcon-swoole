@@ -8,4 +8,9 @@ class IndexController extends Controller
 	{
 		echo 'hello world!';
 	}
+	public function testAction()
+	{
+		echo '<h1>Hello Test,Welcome to Phalcon!</h1>';
+		$this->view->disable();
+	}
 }
