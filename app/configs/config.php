@@ -1,14 +1,14 @@
 <?php
 return new \Phalcon\Config(array(
-    'database' => array(
+    'database' => [
         'adapter' => 'Mysql',
         'host' => 'localhost',
         'username' => 'root',
         'password' => '',
         'dbname' => 'phalconsmvc',
 
-    ),
-    'application'=> array(
+    ],
+    'application'=> [
         'controllersDir' => __DIR__ . '/../../app/controllers/',
         'modelsDir'      => __DIR__ . '/../../app/models/',
         'viewsDir'       => __DIR__ . '/../../app/views/',
@@ -16,5 +16,9 @@ return new \Phalcon\Config(array(
         'libraryDir'     => __DIR__ . '/../../app/library/',
         'cacheDir'       => __DIR__ . '/../../app/cache/',
         'baseUri'        => '/mvc/simple-subcontrollers/',
-    ),
+    ],
+    'logger' => [
+        'application' => APP_PATH . '/app/runtime/application.log',
+        'sql'         => APP_PATH . '/app/runtime/sql.log',
+    ],
 ));
