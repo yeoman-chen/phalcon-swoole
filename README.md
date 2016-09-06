@@ -136,4 +136,6 @@ phalcon-swoole
 	```
 ## How URL request
   ```
+  URL request demo : http://127.0.0.1:9501/front/index/test
+  
   ```
