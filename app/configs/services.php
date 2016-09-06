@@ -16,8 +16,8 @@ $loader = new Loader();
 
 $loader->registerNamespaces(
         array(
-                'SmvcApp\Controllers' => __DIR__ . '/../controllers/',
-                'SmvcApp\Controllers\Front' => __DIR__ . '/../controllers/front'
+                'MyApp\Controllers' => __DIR__ . '/../controllers/',
+                'MyApp\Controllers\Front' => __DIR__ . '/../controllers/front'
         )
 )->register();
 
@@ -47,6 +47,6 @@ $di->set('url', function () {
 });
 $di->set('dispatcher', function(){
 	$dispatcher = new Dispatcher();
-	$dispatcher->setDefaultNamespace('SmvcApp\Controllers');
+	$dispatcher->setDefaultNamespace('MyApp\Controllers');
 	return $dispatcher;
 });

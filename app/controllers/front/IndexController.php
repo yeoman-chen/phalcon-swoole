@@ -1,5 +1,5 @@
 <?php
-namespace SmvcApp\Controllers\Front;
+namespace MyApp\Controllers\Front;
 use Phalcon\Mvc\Controller;
 
 class IndexController extends Controller

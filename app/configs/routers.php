@@ -6,7 +6,7 @@
 $router = new Phalcon\Mvc\Router(false);
 
 $router->add('/front/:controller/:action', [
-    'namespace'  => 'SmvcApp\Controllers\Front',
+    'namespace'  => 'MyApp\Controllers\Front',
     'controller' => 1,
     'action'     => 2,
     //'params'     => 3,
@@ -14,7 +14,7 @@ $router->add('/front/:controller/:action', [
 
 
 $router->add('/:controller/:action', [
-    'namespace'  => 'SmvcApp\Controllers',
+    'namespace'  => 'MyApp\Controllers',
     'controller' => 1,
     'action'     => 2,
     //'params'     => 3,
