@@ -1,4 +1,7 @@
 <?php
+/**
+ * 配置项
+ */
 return new \Phalcon\Config(array(
     'database' => [
         'adapter' => 'Mysql',

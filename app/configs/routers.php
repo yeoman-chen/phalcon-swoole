@@ -1,9 +1,14 @@
 <?php
-//use Phalcon\Mvc\Router;
-//$router = new Phalcon\Mvc\Router();
-
-// Create the router
+/**
+ * 路由定义
+ */
 $router = new Phalcon\Mvc\Router(false);
+/**
+ * 设置默认路由
+ */
+$router->setDefaultNamespace('MyApp\Controllers');
+$router->setDefaultController('index');
+$router->setDefaultAction('index');
 
 $router->add('/front/:controller/:action', [
     'namespace'  => 'MyApp\Controllers\Front',
@@ -21,4 +26,3 @@ $router->add('/:controller/:action', [
 ]);
 
 return $router;
-
