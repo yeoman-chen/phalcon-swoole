@@ -14,4 +14,12 @@ class IndexController extends Controller
 		print_r($_POST);
 		$this->view->disable();
 	}
+	//测试task任务
+	public function taskAction()
+	{
+		header("Content-type: text/html;charset=utf-8");
+		$data = ['id' => 123,'content' => '测试task数据'];
+		$this->server->task(json_encode($data));
+		print_r($data);
+	}
 }
