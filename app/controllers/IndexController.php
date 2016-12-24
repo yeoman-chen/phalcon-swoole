@@ -10,4 +10,10 @@ class IndexController extends Controller
         echo "<h1>Hello!</h1>";
     }
 
+    public function testAction()
+    {
+    	echo "test";
+    	print_r($_HERDER);
+    }
+
 }

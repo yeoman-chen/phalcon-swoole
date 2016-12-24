@@ -74,7 +74,7 @@ class BaseModel extends Injectable
     /**
      * 删除数据
      * @param array  $where   条件
-     * @return boolean true|false 
+     * @return boolean true|false
      */
     public function delete($where)
     {
@@ -95,11 +95,11 @@ class BaseModel extends Injectable
 
     public function has($where)
     {
-        return $this->db->has($this->getSource(),$where);
+        return $this->db->has($this->getSource(), $where);
     }
     /**
      * 取指定列最大值
-     * @param string $column 
+     * @param string $column
      * @param array $where
      * @return number 最大值
      */

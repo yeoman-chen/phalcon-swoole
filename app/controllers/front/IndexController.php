@@ -11,7 +11,7 @@ class IndexController extends Controller
 	public function testAction()
 	{
 		echo '<h1>Hello Test,Welcome to Phalcon!</h1>';
-		print_r($_POST);
+		print_r($_SERVER);
 		$this->view->disable();
 	}
 	//测试task任务

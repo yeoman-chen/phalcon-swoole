@@ -6,8 +6,9 @@
  * @since 2016.09.05
  *
  */
+//namespace MyApp\Core;
 
-define('APP_PATH', realpath(dirname(__FILE__) . '/../'));
+defined('APP_PATH') or define('APP_PATH', realpath(dirname(__FILE__) . '/../'));
 
 class HttpServer
 {
@@ -22,7 +23,7 @@ class HttpServer
     public function __construct($port)
     {
         // 创建swoole_http_server对象
-        $this->http = new swoole_http_server('0.0.0.0', $port);
+        $this->http = new \swoole_http_server('0.0.0.0', $port);
         // 设置参数
         $this->http->set(
             array(
@@ -89,6 +90,11 @@ class HttpServer
             foreach ($request->post as $key => $value) {
                 $_POST[$key] = $value;
                 $_REQUEST[$key] = $value;
+            }
+        }
+        if(isset($request->header)){
+            foreach ((array)$request->header as $key => $value) {
+                $_SERVER[$key] = $value;
             }
         }
         //处理请求
