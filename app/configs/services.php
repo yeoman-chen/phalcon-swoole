@@ -26,6 +26,7 @@ $loader->registerNamespaces(
         'MyApp\Controllers'       => __DIR__ . '/../controllers',
         'MyApp\Controllers\Front' => __DIR__ . '/../controllers/front',
         'MyApp\Library'           => __DIR__ . '/../library',
+        'MyApp\Core'              => __DIR__ . '/../../core',
     )
 )->register();
 

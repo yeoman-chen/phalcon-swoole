@@ -1,8 +1,9 @@
 <?php
 namespace MyApp\Controllers;
 use Phalcon\Mvc\Controller;
+use MyApp\Core\BaseController;
 
-class IndexController extends Controller
+class IndexController extends BaseController
 {
 
     public function indexAction()
@@ -14,6 +15,13 @@ class IndexController extends Controller
     {
     	echo "test";
     	print_r($_HERDER);
+    }
+    public function taskAction()
+    {
+    	$data = ['cmd' => 'sleep','sleepTime' => 5,'reqTime' => time(),'from' => 'http','data' => 'Task Test'];
+    	$this->httpServer->task(json_encode($data));
+    	//echo json_encode($data);
+    	$this->apiResultStandard(1000,'请求成功!',$data);
     }
 
 }

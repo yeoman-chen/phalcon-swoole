@@ -13,9 +13,26 @@ include APP_PATH . "/core/HttpServer.php";
 
 //print_r($argv);die;
 
-if(isset($argv[1]) && $argv[1] == '-p' && isset($argv[2])  && $argv[2] >= 9501 ){
-    HttpServer::getInstance($argv[2]);
-}else{
-    echo "error param for start server!\n";
-    echo "example: php public/server.php -p 9501 \n";
+if(count($argv) < 3){
+	echo "error param for start server!\n";
+    echo "example: php public/server.php start -p 9501 \n";
+    echo "example: php public/server.php stop \n";
+    echo "example: php public/server.php reload \n";
+    exit();
+}
+if($argv[1] == 'stop'){
+
+	$httpServer = new \MyApp\Core\HttpServer($argv[3]);
+    $httpServer->stopServer();
+
+}
+
+if($argv[1] == 'reload'){//重启服务
+	$httpServer = new \MyApp\Core\HttpServer($argv[3]);
+    $httpServer->reloadServer();
+}
+
+if($argv[1] == 'start' && isset($argv[2]) && $argv[2] == '-p' && isset($argv[3])  && $argv[3] >= 9501 ){
+    $httpServer = new \MyApp\Core\HttpServer($argv[3]);
+    $httpServer->getInstance($argv[3]);
 }
